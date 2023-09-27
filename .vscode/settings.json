@@ -1,0 +1,9 @@
+{
+    "docwriter.language": "Spanish",
+    "docwriter.style": "NumPy",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+}
