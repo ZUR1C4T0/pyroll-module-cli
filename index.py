@@ -1,17 +1,16 @@
 """
 Este es el módulo principal del programa
 """
-from utilidades.colores import verde, rojo, cyan, amarillo
+from utilidades.colores import verde, rojo, cyan, amarillo, magenta
 from utilidades.constantes import limpiar_pantalla
-from nomina import ingresar_empleado, imprimir_nomina
+from sub_index import ingresar_empleado, imprimir_nomina
 
 
 def main():
     """
     Esta es la función principal del programa
     """
-    run = True
-    while run:
+    while True:
         limpiar_pantalla()
         print(verde("\tBienvenido al sistema de nómina de la empresa\n"))
         print("1. Ingresar empleado")
@@ -19,24 +18,21 @@ def main():
         print("0. Salir")
 
         try:
-            opcion = int(input("\nIngrese una opción: "))
-            limpiar_pantalla()
+            opcion = int(input(magenta("\nIngrese una opción: ")))
             if opcion == 1:
                 ingresar_empleado()
             elif opcion == 2:
                 imprimir_nomina()
             elif opcion == 0:
-                run = False
-                continue
+                break
             else:
                 raise ValueError
         except ValueError:
-            print(rojo("\n\tOpción inválida\n"))
-        finally:
-            if run:
-                input(cyan("Presione enter para continuar..."))
-            else:
-                print(amarillo("\n\tGracias por usar el sistema de nómina\n"))
+            limpiar_pantalla()
+            print(rojo("\tOpción inválida\n"))
+            input(cyan("Presione enter para continuar..."))
+
+    print(amarillo("\n\t¡Gracias por usar el sistema de nómina!\n"))
 
 
 if __name__ == "__main__":
