@@ -1,6 +1,7 @@
 """Módulo de administrativo"""
 from utilidades.constantes import Administrativo
 from utilidades.colores import verde
+from nomina.funciones_guardado import imprimir_volante
 from nomina.funciones_obtener import (
     obtener_nombre,
     obtener_horas_trabajadas,
@@ -24,5 +25,18 @@ def ingresar_administrativo():
     descuentos = salud + pension
 
     salario_neto = salario_bruto + horas_extras - descuentos - arl
-    # imprimir_volante()
+    imprimir_volante(
+        nombre,
+        adm.cargo,
+        horas_trabajadas,
+        salario_bruto,
+        horas_extras_trabajadas,
+        horas_extras,
+        salud,
+        pension,
+        arl,
+        adm.riesgo_arl,
+        descuentos,
+        salario_neto,
+    )
     # guardar_nomina()

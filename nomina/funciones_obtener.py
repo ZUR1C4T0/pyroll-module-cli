@@ -1,7 +1,7 @@
 """
     Este modulo contiene las funciones que obtienen los datos de los empleados
 """
-from utilidades.colores import rojo, cyan, magenta
+from utilidades.colores import rojo, cyan, magenta, amarillo
 from utilidades.constantes import limpiar_pantalla
 
 
@@ -91,12 +91,12 @@ def obtener_cargo_operativo(titulo: str) -> str:
     """
     limpiar_pantalla()
     print(titulo)
-    print(magenta("Seleccione el cargo del empleado"))
+    print(amarillo("Seleccione el cargo del empleado"))
     print("1. Conductor")
     print("2. Oficios generales")
     print("3. Vigilante")
     try:
-        opcion = int(input("\nIngrese una opción: "))
+        opcion = int(input(magenta("\nIngrese una opción: ")))
         if opcion == 1:
             return "conductor"
         elif opcion == 2:

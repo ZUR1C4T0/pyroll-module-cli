@@ -1,6 +1,7 @@
 """Módulo de operativos"""
 from utilidades.colores import verde
 from utilidades.constantes import Operativo
+from nomina.funciones_guardado import imprimir_volante
 from nomina.funciones_obtener import obtener_nombre, obtener_cargo_operativo
 
 
@@ -23,5 +24,18 @@ def ingresar_operativo():
     descuentos = salud + pension
 
     salario_neto = salario_bruto + horas_extras - descuentos - arl
-    # imprimir_volante()
+    imprimir_volante(
+        nombre,
+        cargo,
+        horas_trabajadas,
+        salario_bruto,
+        horas_extras_trabajadas,
+        horas_extras,
+        salud,
+        pension,
+        arl,
+        ope.riesgo_arl[_cargo],
+        descuentos,
+        salario_neto,
+    )
     # guardar_nomina()
