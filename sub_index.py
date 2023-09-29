@@ -2,6 +2,7 @@
     Este módulo contiene las funciones que ejecutará el menú principal del
     programa.
 """
+import os
 from nomina.administrativo import ingresar_administrativo
 from nomina.operativo import ingresar_operativo
 from utilidades.colores import verde, rojo, cyan, magenta
@@ -41,7 +42,19 @@ def ingresar_empleado() -> None:
 
 def imprimir_nomina():
     """
-    La función "imprimir_nomina" imprime la palabra "Nómina" en verde y espera
-    a que el usuario presione enter para continuar.
+    La función "imprimir_nomina" imprime el contenido de un archivo llamado
+    "nomina.txt" y espera a que el usuario presione enter para continuar.
     """
-    print(verde("\n\tNómina\n"))
+    limpiar_pantalla()
+    print(verde("\tNómina\n"))
+
+    existe_archivo = os.path.exists("nomina.txt")
+
+    if not existe_archivo:
+        print(rojo("No hay empleados registrados\n"))
+        input(cyan("Presione enter para continuar..."))
+        return None
+
+    with open(file="nomina.txt", mode="r", encoding="utf8") as nomina:
+        print(nomina.read())
+        input(cyan("\nPresione enter para continuar..."))
